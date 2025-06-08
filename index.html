@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta class="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="icon" href="img/Logo.svg">
+
+    <script src="js/script.js"></script>
+
+    <title>Registration Form ⪏ Kirill Kolesnikov</title>
+</head>
+<body class="unloaded">
+    <section class="container">
+        <section class="Logo">
+            <img src="img/Logo.svg" alt="Logotype◆">
+            <p class="Label">Company name</p>
+        </section>
+        <section class="Contents">
+            <section id="S1-1" class="Progress-bar active">
+                <img src="img/Progress bar S1-1.svg" alt="*-X-X">
+            </section>
+            <section id="S1-2" class="Progress-bar">
+                <img src="img/Progress bar S1-2.svg" alt="*-*-X">
+            </section>
+            <section id="S1-3" class="Progress-bar">
+                <img src="img/Progress bar S1-3.svg" alt="*-*-*">
+            </section>
+            <section id="Step1-1" class="active">
+                <section class="Title">
+                    <p class="Large-title">Registration</p>
+                    <span class="Body-text">
+                        Fill in the registration data. It will take a couple of minutes. All you need is a phone number and e-mail
+                    </span>
+                </section>
+                <section id="Notify" class="Notification">
+                    <img src="img/IconZ.svg" alt="🔒">
+                    <span class="Caption-text">
+                        We take privacy issues seriously. You can be sure that your personal data is securely protected.
+                    </span>
+                    <button class="Close" onclick="closeNotify()">
+                        <img src="img/IconX.svg" alt="❌">
+                    </button>
+                </section>
+                <section class="Space">
+                    <p class="Field-label">Enter your phone number</p>
+                    <section class="Fields">
+                        <section class="Select">
+                            <section class="Contents">
+                                <select class="Phone-code" id="Phone Code">
+                                    <option value="+1">+1</option>
+                                    <option value="+7">+7</option>
+                                </select>
+                            </section>
+                            <img src="img/Line.svg" alt="___">
+                        </section>
+                        <section class="Input">
+                            <section class="Contents">
+                                <input id="phoneInput" type="tel" autocomplete="off" placeholder="(XXX) XXX-XX-XX" maxLength="10" oninput="phoneCorrector()" onchange="formatPhoneNumber()">
+                            </section>
+                            <img src="img/Line2.svg" alt="_________">
+                        </section>
+                    </section>
+                </section>
+                <button id="Send Code" class="Secondary" onclick="sendCode()">Send Code</button>
+            </section>
+            <section id="Step1-2">
+                <section class="Title">
+                    <p class="Large-title">Registration</p>
+                    <span class="Body-text">
+                        Fill in the registration data. It will take a couple of minutes. All you need is a phone number and e-mail
+                    </span>
+                </section>
+                <section id="Numb" class="Space">
+                    <section class="Contents">
+                        <p class="Field-text">+1 555 555-1234</p>
+                        <p class="Caption-text">Number not confirmed yet</p>
+                    </section>
+                    <button class="Edit">
+                        <img src="img/IconP.svg" alt="✏️">
+                    </button>
+                </section>
+                <section class="Space">
+                    <section class="Field">
+                        <p class="Field-label">Confirmation code</p>
+                        <section class="Input">
+                            <input id="codeInput" type="text" placeholder="————" maxlength="4">
+                            <img src="img/Line3.svg" alt="__________________">
+                        </section>
+                        <p class="Caption-text">Confirm phone number with code from sms message</p>
+                    </section>
+                    <button class="Resend" onclick="resendCode()">
+                        <img src="img/IconS.svg" alt="🔁">
+                        <p class="Send-again">Send again</p>
+                    </button>
+                </section>
+                <button class="Secondary" onclick="confirmCode()">Confirm</button>
+            </section>
+            <section id="Step1-3">
+                <section class="Title">
+                    <p class="Large-title">Registration</p>
+                    <span class="Body-text">
+                        Fill in the registration data. It will take a couple of minutes. All you need is a phone number and e-mail
+                    </span>
+                </section>
+                <section class="Notification">
+                    <p class="Field-text">+1 555 555-1234</p>
+                    <section class="Caption">
+                        <img src="img/IconC.svg" alt="✅">
+                        <p class="Caption-text">Number confirmed</p>
+                    </section>
+                </section>
+                <section class="Space">
+                    <section class="Field">
+                        <p class="Field-label">Enter your email</p>
+                        <section class="Input">
+                            <input type="email" value="alex_manager@gmail.com" placeholder="example@ex.ple">
+                            <img src="img/Line4.svg" alt="__________________">
+                        </section>
+                    </section>
+                    <section class="Field">
+                        <p class="Field-label">Set a password</p>
+                        <section class="Input">
+                            <section class="Contents">
+                                <input id="passwordInput" type="password" autocomplete="new-password" oninput="checkPassword()" value="password" placeholder="Enter password">
+                                <button class="Show" onclick="showPassword()">
+                                    <img id="Showpass" src="img/IconSh.svg" alt="👁️">
+                                    <img id="Closepass" src="img/IconCl.svg" alt="❌" style="display: none;">
+                                </button>
+                            </section>
+                            <img src="img/Line4.svg" alt="__________________">
+                        </section>
+                        <section id="captionPassword" class="Caption">
+                            <img id="ImgBad" src="img/Bad.svg" alt="⛔" display: none;>
+                            <img id="ImgWarning" src="img/Warning.svg" alt="⚠️" style="display: none;">
+                            <img id="ImgPassed" src="img/Passed.svg" alt="✅" style="display: none;">
+                            <p id="statusPass" class="Caption-text">Bad password</p>
+                        </section>
+                    </section>
+                </section>
+                <button class="Primary">Register Now</button>
+            </section>
+        </section>
+        <button class="Mutted" onclick="closePage()"">
+            <img src="img/Muted button.svg" alt="❌">
+        </button>
+        <!-- <section class="Alerts">
+            <section class="Alert error">
+                <section class="Content">
+                    <p class="Status">⛔</p>
+                    <section class="Caption">
+                        <p class="Field-text">Changes saved successfully</p>
+                        <p class="Caption-text">Malesuada tellus tincidunt fringilla enim, id mauris. Id etiam nibh suscipit aliquam dolor.</p>
+                    </section>
+                </section>
+                <button class="Close">
+                    <img src="img/Vector.svg" alt="❌">
+                </button>
+            </section>
+        </section> -->
+    </section>
+</body>
+</html>
